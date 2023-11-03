@@ -12,7 +12,7 @@ const db = require("knex")({
     // user: "quyhaitruong",
     // database: "smart-brain",
     connectionString: process.env.DATABASE_URL,
-    ssl: true,
+    ssl: process.env.DB_SSL,
     // password: config["DB_PASSWORD"],
     // ssl: config["DB_SSL"] ? { rejectUnauthorized: false } : false,
   },
@@ -26,7 +26,12 @@ const { faceDetect } = require("./controllers/face-detect");
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+
+const corsOptions = {
+  origin: process.env.ORIGIN
+};
+
+app.use(cors(corsOptions));
 
 app.get("/", async (req, res) => {
   res.json(await db.select("*").from("users"));

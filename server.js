@@ -12,6 +12,7 @@ const db = require("knex")({
     // user: "quyhaitruong",
     // database: "smart-brain",
     connectionString: process.env.DATABASE_URL,
+    ssl: true,
     // password: config["DB_PASSWORD"],
     // ssl: config["DB_SSL"] ? { rejectUnauthorized: false } : false,
   },

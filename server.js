@@ -7,11 +7,11 @@ const bcrypt = require("bcrypt");
 const db = require("knex")({
   client: "pg",
   connection: {
-    host: "127.0.0.1",
-    port: 5432,
-    user: "quyhaitruong",
-    database: "smart-brain",
-    // connectionString: config.DATABASE_URL,
+    // host: "127.0.0.1",
+    // port: 5432,
+    // user: "quyhaitruong",
+    // database: "smart-brain",
+    connectionString: process.env.DATABASE_URL,
     // password: config["DB_PASSWORD"],
     // ssl: config["DB_SSL"] ? { rejectUnauthorized: false } : false,
   },
